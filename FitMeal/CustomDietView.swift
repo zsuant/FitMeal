@@ -13,10 +13,6 @@ struct CustomDietView: View {
     
     var body: some View {
         VStack {
-            Text("나만의 식단 구성")
-                .font(.headline)
-                .padding()
-            
             List(foodOptions, id: \.self) { food in
                 Button(action: {
                     if selectedFoods.contains(food) {
@@ -51,7 +47,7 @@ struct CustomDietView: View {
             }
             .padding()
         }
-        .navigationTitle("나만의 식단 계산")
+        .navigationTitle("나만의 식단 만들기")
     }
 }
 

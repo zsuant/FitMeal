@@ -6,26 +6,54 @@
 //
 
 
-
 import SwiftUI
 
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            List {
+            let columns = [
+                GridItem(.flexible()),
+                GridItem(.flexible())
+            ]
+            
+            LazyVGrid(columns: columns, spacing: 20) {
                 NavigationLink(destination: MeasureFoodView()) {
-                    Text("음식 무게 측정 및 영양 성분 기록")
+                    Text("식단 추가")
+                        .frame(width: 150, height: 150)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        .font(.headline)
                 }
+                
                 NavigationLink(destination: TodayIntakeView()) {
-                    Text("오늘 섭취 데이터 보기")
+                    Text("식단 확인")
+                        .frame(width: 150, height: 150)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        .font(.headline)
                 }
+                
                 NavigationLink(destination: CustomDietView()) {
-                    Text("나만의 식단 계산하기")
+                    Text("나만의 식단 만들기")
+                        .frame(width: 150, height: 150)
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        .font(.headline)
                 }
+                
                 NavigationLink(destination: FoodNutritionalInfoView()) {
-                    Text("음식 별 영양성분 확인하기")
+                    Text("영양성분 검색")
+                        .frame(width: 150, height: 150)
+                        .background(Color.purple)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        .font(.headline)
                 }
             }
+            .padding()
             .navigationTitle("Home")
         }
     }

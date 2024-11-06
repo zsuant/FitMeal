@@ -16,16 +16,25 @@ struct SignUpView: View {
                 .padding()
 
             TextField("이메일", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+                .background(Color(UIColor.systemGray5))
+                .cornerRadius(10)
+                .shadow(radius: 2)
+                .foregroundColor(.primary)
+                .padding(.bottom, 10)
 
             SecureField("비밀번호", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+                .background(Color(UIColor.systemGray5))
+                .cornerRadius(10)
+                .shadow(radius: 2)
+                .foregroundColor(.primary)
+                .padding(.bottom, 10)
 
             if let errorMessage = errorMessage {
                 Text(errorMessage)
                     .foregroundColor(.red)
+                    .padding(.top, 10)
             }
 
             Button(action: {
@@ -38,8 +47,12 @@ struct SignUpView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
-            .padding()
+            .padding(.top, 20)
         }
+        .padding()
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(15)
+        .shadow(radius: 10)
         .padding()
     }
 
@@ -49,7 +62,7 @@ struct SignUpView: View {
                 self.errorMessage = error.localizedDescription
                 return
             }
-            self.isLoggedIn = true // 회원가입 성공 시 홈페이지로 이동
+            self.isLoggedIn = true 
         }
     }
 }
